@@ -1,0 +1,27 @@
+Databases Homework:
+  - Make a Nest.js application. Use MVC structure.
+  - Install a MySQL(MariaDB) server. Connect it to your application via framework config. 
+  - Create a database named “homework” manually/through migration.
+
+  -Create tables in the DB using default synchronization feature. Then turn it off. 
+  -After creating tables, write a migration that adds “password_expire” column to the “users” table. Populate it later with (today+90 days) datetime values
+  -Figure out the tables and their structure by yourself, but do not be afraid to ask for help if you are stuck
+
+  - Create a Register Page:
+    - Allows you to register new account. On success takes you to the Login page
+        UI fields:
+        - email(free input)
+        - password(free input)
+        - country(dropdown)
+        - countries I want to visit(multiple inputs/one multiselect)
+  - Dashboard
+    - User info in JSON: email, country, countries they want to visit, password expiration date
+
+Additional info:
+  - You will need to make sure that not a single user can send a query to the dashboard more than 3 times per second. Use default caching functionality to remember (user_id + currentSecond) as key and numberOfTries as value
+  - Use middleware to control the number of tries
+  - I care not about auth mechanism. It could be just the cookie with random auth token for all I care. Do not forget the Log Out button.
+  - I would like to see proper handling of input errors. Not the first priority, but nice-to-have.
+
+Helpful:
+  - Nest.js documentation: https://docs.nestjs.com/
