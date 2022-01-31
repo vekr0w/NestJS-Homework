@@ -1,7 +1,10 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { RegisterModule } from './register/register.module';
+import { AccountService } from './account/account.service';
 
 @Module({
   imports: [
@@ -12,11 +15,12 @@ import { AppService } from './app.service';
       username: 'root',
       password: 'homework123',
       database: 'homework',
-      entities: [],
+      entities: [join(__dirname, '**', '*.entity.{ts,js}')],
       synchronize: true,
     }),
+    RegisterModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, AccountService],
 })
 export class AppModule {}
