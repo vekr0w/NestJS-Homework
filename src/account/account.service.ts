@@ -5,46 +5,46 @@ import { CreateAccountDTO } from '../register/dto/create-account.dto';
 import { AccountRepository } from '../register/account.repository';
 
 @Injectable()
-export class ProductService {
+export class AccountService {
   constructor(
     @InjectRepository(AccountRepository)
-    private productRepository: AccountRepository,
+    private AccountRepository: AccountRepository,
   ) {}
 
-  public async createProduct(
-    createProductDto: CreateAccountDTO,
+  public async createAccount(
+    createAccountDto: CreateAccountDTO,
   ): Promise<Account> {
-    return await this.productRepository.createProduct(createProductDto);
+    return await this.AccountRepository.createAccount(createAccountDto);
   }
 
 
-  public async getProducts(): Promise<Account[]> {
-    return await this.productRepository.find();
+  public async getAccounts(): Promise<Account[]> {
+    return await this.AccountRepository.find();
   }
 
 
-  public async getProduct(productId: number): Promise<Account> {
-    const foundProduct = await this.productRepository.findOne(productId);
-    if (!foundProduct) {
+  public async getAccount(accountId: number): Promise<Account> {
+    const foundAccount = await this.AccountRepository.findOne(accountId);
+    if (!foundAccount) {
       throw new NotFoundException('Account not found');
     }
-    return foundProduct;
+    return foundAccount;
   }
 
 
-  public async editProduct(
-    productId: number,
-    createProductDto: CreateAccountDTO,
+  public async editAccount(
+    accountId: number,
+    createAccountDto: CreateAccountDTO,
   ): Promise<Account> {
-    const editedProduct = await this.productRepository.findOne(productId);
-    if (!editedProduct) {
+    const editedAccount = await this.AccountRepository.findOne(accountId);
+    if (!editedAccount) {
       throw new NotFoundException('Account not found');
     }
-    return this.productRepository.editProduct(createProductDto, editedProduct);
+    return this.AccountRepository.editAccount(createAccountDto, editedAccount);
   }
 
 
-  public async deleteProduct(productId: number): Promise<void> {
-    await this.productRepository.delete(productId);
+  public async deleteAccount(accountId: number): Promise<void> {
+    await this.AccountRepository.delete(accountId);
   }
 }
