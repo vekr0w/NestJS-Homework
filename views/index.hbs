@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title>App</title>
+  </head>
+  <body>
+    <header>
+      <h1>Registration Page</h1>
+    </header>
+    <main>
+      <div class='registration-form'>
+        <div class='rf-wrapper'>
+          <label for='email'>Email</label>
+          <input type='text' id='email' />
+        </div>
+        <div class='rf-wrapper'>
+          <label for='password'>Password</label>
+          <input type='password' id='password' />
+        </div>
+        <div class='rf-wrapper'>
+          <label for='country'>Country</label>
+          <select  name='country' id='country'>
+            <option value='bulgaria'>Bulgaria</option>
+            <option value='russia'>Russia</option>
+            <option value='germany'>Germany</option>
+            <option value='spain'>Spain</option>
+          </select>
+        </div>
+      </div>
+    </main>
+    {{message}}
+  </body>
+</html>
