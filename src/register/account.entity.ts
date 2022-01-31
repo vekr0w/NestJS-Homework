@@ -1,4 +1,4 @@
-import { PrimaryGeneratedColumn, BaseEntity, Column, Entity } from 'typeorm';
+import { PrimaryGeneratedColumn, BaseEntity, Column, Entity, ManyToOne } from 'typeorm';
 import { Country } from './country.entity';
 
 @Entity()
@@ -8,13 +8,10 @@ export class Account extends BaseEntity {
 
   @Column()
   email: string;
-
+  
   @Column()
   password: string;
 
-  @Column()
+  @ManyToOne(() => Country, country => country.accounts)
   country: Country;
-
-  @Column()
-  countries: Country[];
 }

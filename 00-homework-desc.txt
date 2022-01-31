@@ -25,3 +25,7 @@ Additional info:
 
 Helpful:
   - Nest.js documentation: https://docs.nestjs.com/
+
+
+  [Nest] 28564  - 31/01/2022, 17:02:40   ERROR [ExceptionHandler] Nest can't resolve dependencies of the AccountService (?). Please make sure that the argument AccountRepository at index [0] is available in the AppModule context.
+
